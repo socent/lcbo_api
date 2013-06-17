@@ -14,9 +14,9 @@ else
 
   elsif 
     action == "show"
-    inventory_id = ARGV[1]
+    product_id = ARGV[1]
 
-    if inventory_id.nil?
+    if product_id.nil?
       puts "Usage: ruby router.rb show [inventory_id]"
 
     else
