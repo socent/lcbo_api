@@ -1,7 +1,7 @@
 require_relative 'html_generator'
 
 if ARGV.empty?
-  puts "Usage: ruby router.rb [action]"
+  puts "Choose an option. usage: ruby router.rb [action]"
 
 else
   action = ARGV[0]
@@ -9,22 +9,24 @@ else
 
   if 
     action == "index"
-    search_text = ARGV[1]
-    generator.index(search_text)
+    
+    if ARGV[1]= nil
+      generator.index(search_text)
+
+  else
+    search_item = ARGV[1]
+    generator.index(search_item)
+  end
 
   elsif 
     action == "show"
-    product_id = ARGV[1]
+    inventory_id = ARGV[1]
 
-    if product_id.nil?
-      puts "Usage: ruby router.rb show [inventory_id]"
-
-    else
-      generator.show(id)
-    end
-
-  else
-    puts "Unknown action #{action}. Use index or show."
+  if 
+    inventory_id.nil?
+    puts "ID not known- please check and try again: ruby router.rb show [inventory_id]"
   end
+    
+  generator.show(id)
 
 end
